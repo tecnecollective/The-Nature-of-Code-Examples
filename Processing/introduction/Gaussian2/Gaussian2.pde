@@ -1,6 +1,7 @@
 // The Nature of Code
 // Daniel Shiffman
 // http://natureofcode.com
+import java.util.Random;
 
 Random generator;
 
