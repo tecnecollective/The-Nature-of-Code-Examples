@@ -9,7 +9,7 @@
 //--------------------------------------------------------------
 void testApp::setup(){
 
-    ofSetFrameRate(60);     // I think a frameRate of 30 is making the app run very 'jittery'
+    ofSetFrameRate(60);
 
     //Sets white background
     ofBackground(255);
