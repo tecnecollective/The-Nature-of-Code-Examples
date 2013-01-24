@@ -2,7 +2,8 @@
 // Daniel Shiffman
 // http://natureofcode.com
 
-// Example 1-1: Bouncing Ball, no vectors
+// Example 1-6: Demonstration of normalizing a vector.
+// Normalizing a vector sets its length to 1.
 
 #include "testApp.h"
 
@@ -10,60 +11,47 @@
 void testApp::setup(){
 
     ofSetFrameRate(60);
-
-    //Sets white background
-    ofBackground(255);
-    
+    ofBackground(255);     //Sets white background
     ofSetVerticalSync(true);
-    
     ofEnableSmoothing();
-
-    x = 100;
-    y = 100;
-    xspeed = 2.5;
-    yspeed = 2;
+    
+    
+    centre.set(ofGetWidth()/2,ofGetHeight()/2);
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-
+    
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    // set the background colour
-    ofBackground(255);
-    
-    // Add the current speed to the location.
-    x = x + xspeed;
-    y = y + yspeed;
-    
-    if ((x > ofGetWidth()) || (x < 0)) {
-        xspeed = xspeed * -1;
-    }
-    if ((y > ofGetHeight()) || (y < 0)) {
-        yspeed = yspeed * -1;
-    }
-    
-    // Display circle at x location
-    ofSetColor(127);  // I'm not aware of any simple way to draw an outline (e.g. stroke(0);) in OF.  - JM
-    ofCircle(x, y, 24);
-    
-}
 
-//--------------------------------------------------------------
-void testApp::keyPressed(int key){
-
-}
-
-//--------------------------------------------------------------
-void testApp::keyReleased(int key){
-
+    ofTranslate(ofGetWidth()/2,ofGetHeight()/2);
+    ofSetLineWidth(2);
+    ofSetColor(0);
+    ofLine(0,0,mouse.x,mouse.y);
+    
 }
 
 //--------------------------------------------------------------
 void testApp::mouseMoved(int x, int y ){
+    mouse.set(x,y);     // A vector that points to the mouse location
+    mouse -= centre;    // Subtract center from mouse which results in a vector that points from center to mouse
+    mouse.normalize();  // Normalize the vector
+    mouse *= 150;       // Multiply its length by 150
+}
 
+
+
+//--------------------------------------------------------------
+void testApp::keyPressed(int key){
+    
+}
+
+//--------------------------------------------------------------
+void testApp::keyReleased(int key){
+    
 }
 
 //--------------------------------------------------------------

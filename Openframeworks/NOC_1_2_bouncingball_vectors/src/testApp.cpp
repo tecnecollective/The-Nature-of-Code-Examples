@@ -2,7 +2,7 @@
 // Daniel Shiffman
 // http://natureofcode.com
 
-// Example 1-1: Bouncing Ball, no vectors
+// Example 1-2: Bouncing Ball, with ofVec2f!
 
 #include "testApp.h"
 
@@ -10,44 +10,32 @@
 void testApp::setup(){
 
     ofSetFrameRate(60);
-
-    //Sets white background
-    ofBackground(255);
-    
     ofSetVerticalSync(true);
-    
+    ofSetBackgroundAuto(false);     //disable background cleanup
     ofEnableSmoothing();
 
-    x = 100;
-    y = 100;
-    xspeed = 2.5;
-    yspeed = 2;
+    location.set(100,100);
+    velocity.set(2.5,5);
 }
 
 //--------------------------------------------------------------
 void testApp::update(){
-
+    location += velocity;     // Add the current speed to the location.
+    if ((location.x > ofGetWidth()) || (location.x < 0)) {
+        velocity.x = velocity.x * -1;
+    }
+    if ((location.y > ofGetHeight()) || (location.y < 0)) {
+        velocity.y = velocity.y * -1;
+    }
 }
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    // set the background colour
-    ofBackground(255);
-    
-    // Add the current speed to the location.
-    x = x + xspeed;
-    y = y + yspeed;
-    
-    if ((x > ofGetWidth()) || (x < 0)) {
-        xspeed = xspeed * -1;
-    }
-    if ((y > ofGetHeight()) || (y < 0)) {
-        yspeed = yspeed * -1;
-    }
-    
-    // Display circle at x location
-    ofSetColor(127);  // I'm not aware of any simple way to draw an outline (e.g. stroke(0);) in OF.  - JM
-    ofCircle(x, y, 24);
+
+    ofSetColor(255,0.1);
+    ofRect(0,0,ofGetWidth(),ofGetHeight());
+    ofSetColor(175);
+    ofCircle(location.x, location.y, 16);     // Display circle at x location
     
 }
 
