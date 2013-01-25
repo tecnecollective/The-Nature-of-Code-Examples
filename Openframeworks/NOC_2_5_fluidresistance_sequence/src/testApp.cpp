@@ -27,6 +27,8 @@ void testApp::setup(){
     for (int i=0;i<11;i++) {
         movers.push_back(Mover(ofRandom(1, 4),ofRandom(0,ofGetWidth()),0));
     }
+    snapCounter = 0;
+	memset(snapString, 0, 255);		// clear the string by setting all chars to 0    
 }
 
 //--------------------------------------------------------------
@@ -60,9 +62,19 @@ void testApp::draw(){
         movers[i].checkEdges();
     }
     
-    ofSetColor(0);
-    string text = "click mouse to reset";
-    ofDrawBitmapString(text, 30,20);
+//    ofSetColor(0);
+//    string text = "click mouse to reset";
+//    ofDrawBitmapString(text, 30,20);
+    
+    
+    if (ofGetFrameNum() % 20 == 0){
+		// grab a rectangle at 200,200, width and height of 300,180
+		img.grabScreen(0,0,ofGetWidth(),ofGetHeight());
+		string fileName = "snapshot_"+ofToString(10000+snapCounter)+".png";
+		img.saveImage(fileName);
+		sprintf(snapString, "saved %s", fileName.c_str());
+		snapCounter++;
+	}
 }
 
 void testApp::reset() {

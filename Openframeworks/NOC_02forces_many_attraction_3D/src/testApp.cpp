@@ -2,13 +2,8 @@
 // Daniel Shiffman
 // http://natureofcode.com
 
-// Example 2-5: Fluid Resistance
+// Example 2 Forces_Many_Attraction_3D
 
-// Forces (Gravity and Fluid Resistance) with Vectors
-
-// Demonstration of multiple force acting on bodies (Mover class)
-// Bodies experience gravity continuously
-// Bodies experience fluid resistance when in "water"
 
 #include "testApp.h"
 
@@ -20,12 +15,13 @@ void testApp::setup(){
     ofSetVerticalSync(true);
     ofEnableSmoothing();
     ofEnableAlphaBlending();
-
+    glEnable(GL_DEPTH_TEST);
     
-    liquid = new Liquid(0, ofGetHeight()/2, ofGetWidth(), ofGetHeight()/2, 0.1);
-    movers.clear();
-    for (int i=0;i<11;i++) {
-        movers.push_back(Mover(ofRandom(1, 4),ofRandom(0,ofGetWidth()),0));
+    a = new Attractor();
+    angle = 0;
+    float g = 0.4;
+    for (int i=0;i<10;i++) {
+        movers.push_back(Mover(ofRandom(0.1,2),ofRandom(ofGetWidth()/2),ofRandom(ofGetHeight()/2),ofRandom(-100,100),g));
     }
 }
 
@@ -36,42 +32,19 @@ void testApp::update(){
 
 //--------------------------------------------------------------
 void testApp::draw(){
-    
-    liquid->display();
-    
+    ofBackground(0);
+    ofTranslate(ofGetWidth()/2,ofGetHeight()/2);
+    ofRotateY(angle);
+
+    a->display();
     for (int i = 0; i < movers.size(); i++) {
-        
-        // Is the Mover in the liquid?
-        if (liquid->contains(movers[i])) {
-            // Calculate drag force
-            ofVec2f dragForce = liquid->drag(movers[i]);
-            // Apply drag force to Mover
-            movers[i].applyForce(dragForce);
-        }
-        
-        // Gravity is scaled by mass here!
-        gravity.set(0, 0.1*movers[i].mass);
-        // Apply gravity
-        movers[i].applyForce(gravity);
-        
-        // Update and display
+        ofVec3f force = a->attract(movers[i]);
+        movers[i].applyForce(force);
         movers[i].update();
         movers[i].display();
-        movers[i].checkEdges();
     }
     
-    ofSetColor(0);
-    string text = "click mouse to reset";
-    ofDrawBitmapString(text, 30,20);
-}
-
-void testApp::reset() {
-    for (int i=movers.size();i>0;i--) {
-        movers.erase(movers.begin() + i);
-    }
-    for (int i = 0; i < 11; i++) {
-        movers.push_back(Mover(ofRandom(0.5, 3),40+i*70, 0));
-    }
+    angle += 0.003;
 }
 
 //--------------------------------------------------------------
@@ -96,7 +69,7 @@ void testApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void testApp::mousePressed(int x, int y, int button){
-    reset();
+    
 }
 
 //--------------------------------------------------------------
