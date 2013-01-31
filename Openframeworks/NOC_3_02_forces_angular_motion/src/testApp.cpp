@@ -3,7 +3,7 @@
 // http://natureofcode.com
 
 // Example 3_02 Forces Angular Motion
-
+// NOT WORKING CURRENTLY
 
 #include "testApp.h"
 
