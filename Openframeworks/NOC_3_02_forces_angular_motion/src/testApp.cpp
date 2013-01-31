@@ -34,7 +34,7 @@ void testApp::update(){
 
     if (time > 1) {
         for (int i = 0; i < movers.size(); i++) {
-            ofVec3f force = a.attract(movers[i]);
+            ofVec2f force = a.attract(movers[i]);
             movers[i].applyForce(force);
             movers[i].update();
             movers[i].display();

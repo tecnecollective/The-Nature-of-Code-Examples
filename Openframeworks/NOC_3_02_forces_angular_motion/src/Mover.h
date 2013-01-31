@@ -13,7 +13,7 @@
 class Mover {
 public:
     
-    ofVec3f location, acceleration, velocity;
+    ofVec2f location, acceleration, velocity;
     float mass, angle = 0, aVelocity = 0, aAcceleration = 0;
     
     Mover() {
@@ -28,8 +28,8 @@ public:
         acceleration.set(0,0);
     }
     
-    void applyForce(ofVec3f force) {
-        ofVec3f f;
+    void applyForce(ofVec2f force) {
+        ofVec2f f;
         f.set(force);
         f /= mass;
         acceleration += f;
@@ -43,7 +43,7 @@ public:
         aVelocity += aAcceleration;
         aVelocity = ofClamp(aVelocity,-0.1,0.1);
         angle += aVelocity;
-        acceleration.set(0,0,0);
+        acceleration.set(0,0);
     }
     
     void display() {
@@ -53,7 +53,7 @@ public:
         ofSetColor(175,200);
         ofPushMatrix();
         ofTranslate(location.x,location.y);
-        ofRotateX(angle);
+        ofRotate(angle);
         ofRect(0, 0, mass * 8, mass * 8);
         ofPopMatrix();
     }

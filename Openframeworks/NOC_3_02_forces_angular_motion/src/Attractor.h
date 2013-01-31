@@ -17,7 +17,7 @@
 class Attractor {
 public:
     float mass;         // Mass, tied to size
-    ofVec3f location;   // Location
+    ofVec2f location;   // Location
     float g;
     
     Attractor() {
@@ -27,7 +27,7 @@ public:
     }
 
     ofVec3f attract(Mover m) {
-        ofVec3f force;
+        ofVec2f force;
         force.set(location);
         force /= m.location;
         float distance = force.length();
