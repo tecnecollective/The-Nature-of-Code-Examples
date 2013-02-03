@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "NOC_2_forces_many_attraction_3D.app"
-               BlueprintName = "NOC_2_forces_many_attraction_3D"
-               ReferencedContainer = "container:NOC_2_forces_many_attraction_3D.xcodeproj">
+               BuildableName = "NOC_3_08_static_wave_lines.app"
+               BlueprintName = "NOC_3_09_exercise_additive_wave"
+               ReferencedContainer = "container:NOC_3_09_exercise_additive_wave.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_forces_many_attraction_3D.app"
-            BlueprintName = "NOC_2_forces_many_attraction_3D"
-            ReferencedContainer = "container:NOC_2_forces_many_attraction_3D.xcodeproj">
+            BuildableName = "NOC_3_08_static_wave_lines.app"
+            BlueprintName = "NOC_3_09_exercise_additive_wave"
+            ReferencedContainer = "container:NOC_3_09_exercise_additive_wave.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -52,9 +52,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_forces_many_attraction_3D.app"
-            BlueprintName = "NOC_2_forces_many_attraction_3D"
-            ReferencedContainer = "container:NOC_2_forces_many_attraction_3D.xcodeproj">
+            BuildableName = "NOC_3_08_static_wave_lines.app"
+            BlueprintName = "NOC_3_09_exercise_additive_wave"
+            ReferencedContainer = "container:NOC_3_09_exercise_additive_wave.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -70,9 +70,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_forces_many_attraction_3D.app"
-            BlueprintName = "NOC_2_forces_many_attraction_3D"
-            ReferencedContainer = "container:NOC_2_forces_many_attraction_3D.xcodeproj">
+            BuildableName = "NOC_3_08_static_wave_lines.app"
+            BlueprintName = "NOC_3_09_exercise_additive_wave"
+            ReferencedContainer = "container:NOC_3_09_exercise_additive_wave.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
