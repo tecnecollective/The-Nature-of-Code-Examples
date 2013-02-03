@@ -2,8 +2,8 @@
 // Daniel Shiffman
 // http://natureofcode.com
 
-// NOC_6 Stay Within Circle
-// "Made-up" Steering behavior to stay within walls
+// NOC_3_07 Stay Within 'Donut'
+// Simply for the fun of it, the vehicle must steer within the lines of a donut.
 
 
 #include "testApp.h"
@@ -20,10 +20,11 @@ void testApp::setup(){
     
     debug = true;
     circleLocation.set(ofGetWidth()/2,ofGetHeight()/2);
-    circleRadius = 200;
+    circleRadiusOuter = 200;
+    circleRadiusInner = 150;
     
 //    for (int i=0;i<50;i++) {   // in case you'd like to see lots of these in action
-        v.push_back(Vehicle(ofGetWidth()/2,ofGetHeight()/2-5,circleLocation, circleRadius));
+        v.push_back(Vehicle(ofRandom(0,ofGetWidth()),ofRandom(0,ofGetHeight())));
 //    }
     
     
@@ -41,11 +42,16 @@ void testApp::draw(){
     if (debug) {
         ofNoFill();
         ofSetColor(175);
-        ofCircle(circleLocation.x,circleLocation.y, circleRadius/2, circleRadius/2);
+        ofCircle(circleLocation.x,circleLocation.y, circleRadiusOuter/2, circleRadiusOuter/2);
+        ofCircle(circleLocation.x,circleLocation.y, circleRadiusInner/2, circleRadiusInner/2);
     }
 
     for (int i=0;i<v.size();i++) {
-        v[i].boundaries();
+        if (debug) {
+            v[i].drawFutureLocation();
+        }
+        v[i].outerBoundaries(circleLocation, circleRadiusOuter);
+        v[i].innerBoundaries(circleLocation, circleRadiusInner);
         v[i].run();
     }
 
