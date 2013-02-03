@@ -47,13 +47,19 @@ public:
     }
     
     void display() {
-//        stroke(0);
-//        fill(175,200);
+        
+        
 //        rectMode(CENTER);
         ofSetColor(175,200);
         ofPushMatrix();
         ofTranslate(location.x,location.y);
         ofRotate(angle);
+        ofNoFill();
+        ofSetColor(0);
+        ofRect(0, 0, mass * 8, mass * 8);
+        
+        ofFill();
+        ofSetColor(175,200);
         ofRect(0, 0, mass * 8, mass * 8);
         ofPopMatrix();
     }
