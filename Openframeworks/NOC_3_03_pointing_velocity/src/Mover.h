@@ -47,11 +47,20 @@ public:
         float theta = v1.angle(v2);
         
         ofSetLineWidth(2);
-        ofSetColor(127);
+        
+        
+        
         ofPushMatrix();
         ofRectMode(OF_RECTMODE_CENTER);
         ofTranslate(location.x, location.y);
         ofRotate(theta);
+
+        ofNoFill();
+        ofSetColor(0);
+        ofRect(0, 0, 30, 10);
+        
+        ofFill();
+        ofSetColor(127);
         ofRect(0, 0, 30, 10);
         ofPopMatrix();
     }
