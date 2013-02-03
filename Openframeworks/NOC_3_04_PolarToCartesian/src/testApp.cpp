@@ -22,6 +22,7 @@ void testApp::setup(){
 
     r = ofGetHeight() * 0.45;
     theta = 0;
+    ofSetCircleResolution(50);
     
 }
 
@@ -39,9 +40,16 @@ void testApp::draw(){
     float x = r * cos(theta);
     float y = r * sin(theta);
     
-    ofSetColor(127);
+
     ofSetLineWidth(2);
+    ofNoFill();
+
+    ofSetColor(0);
     ofLine(0,0,x,y);
+    ofCircle(x, y, 24, 24);
+
+    ofFill();
+    ofSetColor(127);
     ofCircle(x, y, 24, 24);
     
     // Increase the angle over time
