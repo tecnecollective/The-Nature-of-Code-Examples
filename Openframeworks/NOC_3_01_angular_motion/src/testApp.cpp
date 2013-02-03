@@ -37,9 +37,19 @@ void testApp::draw(){
     ofSetColor(0);
     ofSetLineWidth(2);
     ofLine(-60, 0, 60, 0);
+    
+    
+    ofNoFill();
+    ofSetColor(0);
+    ofCircle(60, 0, 16, 16);
+    ofCircle(-60, 0, 16, 16);
+    
+    
+    ofFill();
     ofSetColor(127);
     ofCircle(60, 0, 16, 16);
     ofCircle(-60, 0, 16, 16);
+    
     angle += aVelocity;
     aVelocity += aAcceleration;
 }

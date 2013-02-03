@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-               BuildableName = "NOC_2_forces_many_attraction_3D.app"
+               BuildableName = "NOC_3_01_angular_motion.app"
                BlueprintName = "NOC_3_01_angular_motion"
                ReferencedContainer = "container:NOC_3_01_angular_motion.xcodeproj">
             </BuildableReference>
@@ -33,7 +33,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_forces_many_attraction_3D.app"
+            BuildableName = "NOC_3_01_angular_motion.app"
             BlueprintName = "NOC_3_01_angular_motion"
             ReferencedContainer = "container:NOC_3_01_angular_motion.xcodeproj">
          </BuildableReference>
@@ -52,7 +52,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_forces_many_attraction_3D.app"
+            BuildableName = "NOC_3_01_angular_motion.app"
             BlueprintName = "NOC_3_01_angular_motion"
             ReferencedContainer = "container:NOC_3_01_angular_motion.xcodeproj">
          </BuildableReference>
@@ -70,7 +70,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "E4B69B5A0A3A1756003C02F2"
-            BuildableName = "NOC_2_forces_many_attraction_3D.app"
+            BuildableName = "NOC_3_01_angular_motion.app"
             BlueprintName = "NOC_3_01_angular_motion"
             ReferencedContainer = "container:NOC_3_01_angular_motion.xcodeproj">
          </BuildableReference>
