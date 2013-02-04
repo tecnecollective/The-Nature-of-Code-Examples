@@ -147,7 +147,7 @@ public:
         ofTranslate(location.x, location.y, location.z);
 //        ofRotateZ(theta);
 
-        
+        ofFill();
         ofSetColor(255,0,200);
         ofSphere(0,0,0,r);
 //        ofTriangle(0, -r*2, -r, r*2, r, r*2);     

@@ -45,12 +45,10 @@ void testApp::draw(){
     }
     
     if (debug) {
-        ofSetColor(200,200,0,100);
-        ofCircle(circleLocation.x,circleLocation.y,circleRadiusOuter * 0.5);
-        //        ofSphere(circleLocation.x,circleLocation.y,circleLocation.z, circleRadiusOuter * 0.6);
-        ofSetColor(200,0,0,100);
-        ofCircle(circleLocation.x,circleLocation.y,circleRadiusInner * 0.5);
-//        ofSphere(circleLocation.x,circleLocation.y,circleLocation.z, circleRadiusInner * 0.5);
+        ofSetColor(255,125);
+        ofNoFill();
+        ofCircle(circleLocation.x,circleLocation.y,circleRadiusOuter * 0.6);
+        ofCircle(circleLocation.x,circleLocation.y,circleRadiusInner * 0.6);
     }
 }
 
