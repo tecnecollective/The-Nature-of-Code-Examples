@@ -2,7 +2,8 @@
 // Daniel Shiffman
 // http://natureofcode.com
 
-//  Stay Within Circle3D
+//  Stay Within Sphere
+//  Ported to OF by Jason McDermott
 
 
 #include "testApp.h"
@@ -14,24 +15,20 @@ void testApp::setup(){
     ofSetVerticalSync(true);
     ofSetCircleResolution(100);
     ofEnableSmoothing();
-    glEnable(GL_DEPTH_TEST);
     
     debug = true;
     circleLocation.set(ofGetWidth()/2,ofGetHeight()/2, 0);
-    circleRadiusOuter = 200;
-    circleRadiusInner = 150;
+    circleRadius = 200;
     
-    for (int i=0;i<2;i++) {   // in case you'd like to see lots of these in action
-        v.push_back(Vehicle(ofGetWidth()/2,ofGetHeight()/2-5, ofRandom(-2,2)));
+    for (int i=0;i<200;i++) {   // in case you'd like to see lots of these in action
+        v.push_back(Vehicle(ofGetWidth()/2,ofGetHeight()/2-5, ofRandom(-10,10), circleLocation, circleRadius));
     }
 }
 
 void testApp::update(){
-
+    glEnable(GL_DEPTH_TEST);
     glEnable(GL_BLEND);
-//    ofEnableAlphaBlending();
-//    glBlendFunc(GL_SRC_ALPHA, GL_ONE);
-    glBlendFunc(GL_ONE, GL_ONE);
+    ofEnableAlphaBlending();
 }
 
 
@@ -39,16 +36,13 @@ void testApp::draw(){
 
     ofBackground(0);
     for (int i=0;i<v.size();i++) {
-        v[i].outerBoundaries(circleLocation, circleRadiusOuter);
-        v[i].innerBoundaries(circleLocation, circleRadiusInner);
+        v[i].boundaries();
         v[i].run();
     }
     
     if (debug) {
-        ofSetColor(255,125);
-        ofNoFill();
-        ofCircle(circleLocation.x,circleLocation.y,circleRadiusOuter * 0.6);
-        ofCircle(circleLocation.x,circleLocation.y,circleRadiusInner * 0.6);
+        ofSetColor(200, 200);
+        ofSphere(circleLocation.x,circleLocation.y,circleLocation.z, circleRadius * 0.6);
     }
 }
 
