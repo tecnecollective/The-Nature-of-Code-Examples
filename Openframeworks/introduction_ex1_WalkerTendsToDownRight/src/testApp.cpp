@@ -2,9 +2,13 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-    ofSetFrameRate(30);
+
+    ofSetFrameRate(60);     // I think a frameRate of 30 is making the app run very 'jittery'
+
     //Sets white background
     ofBackground(255);
+    
+    ofSetVerticalSync(true);
     //disable background cleanup
     ofSetBackgroundAuto(false);
 }

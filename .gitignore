@@ -1,2 +1,49 @@
 .DS_Store
 *.app*
+
+#OSX
+*.swp
+*~.nib
+# Thumbnails
+._*
+
+
+# OF-specific ignore patterns
+
+openFrameworks.a
+openFrameworksDebug.a
+openFrameworksUniversal.a
+
+#rule to avoid non-official addons going into git
+#see addons/.gitignore
+addons/*
+
+#rule to avoid non-official apps going into git
+#see apps/.gitignore
+apps/*
+
+#also, see examples/.gitignore
+
+# Some general ignore patterns
+
+build/
+obj/
+*.o
+Debug*/
+Release*/
+*.mode*
+*.app/
+*.pyc
+.svn/
+
+# IDE-specific ignore patterns
+
+#XCode
+*.pbxuser
+*.perspective
+*.perspectivev3
+*.mode1v3
+*.mode2v3
+#XCode 4
+xcuserdata
+*.xcworkspace
